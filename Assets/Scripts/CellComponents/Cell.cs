@@ -12,7 +12,7 @@ public class Cell : MonoBehaviour
     public List<Cell> origin = new List<Cell>();
     public TextMeshPro displayInfo;
     private Vector2 colidingVelocity = new Vector2();
-    private List<GameObject> collidedObjects = new List<GameObject>();
+    private readonly List<GameObject> collidedObjects = new List<GameObject>();
     private float speed = 50;
     public float massChange;
     public bool isSpliting = false;
@@ -117,7 +117,7 @@ public class Cell : MonoBehaviour
         SetText();
         massChange = cellManager.agarGamemodeManager.MassChange;
         SetScale();
-        InvokeRepeating("UpdateMass", 3f, 0.5f);
+        InvokeRepeating(nameof(UpdateMass), 3f, 0.5f);
         timeToStopSpliting = 0;
         isTouchingWall = false;
         SetTargetMergeTime();

@@ -73,7 +73,7 @@ public class PlayerManager : MonoBehaviour
             {
                 StartupComplete = true;
                 ChangeSpectate();
-                InvokeRepeating("ChangeSpectate", 10, 10);
+                InvokeRepeating(nameof(ChangeSpectate), 10, 10);
             }
         }
         else

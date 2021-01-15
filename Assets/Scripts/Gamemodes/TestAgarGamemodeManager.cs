@@ -135,22 +135,22 @@ public class TestAgarGamemodeManager : MonoBehaviour
     }
     private bool IsValidObjects()
     {
-        if (foodCell == null || !foodCell.tag.Equals("Food"))
+        if (foodCell == null || !foodCell.CompareTag("Food"))
         {
             print("Error, no foodCell Provided, or the provided food cell is not food.");
             return false;
         }
-        if (cellObject == null || cellObject.GetComponent<Cell>() == null || !cellObject.tag.Equals("Cell"))
+        if (cellObject == null || cellObject.GetComponent<Cell>() == null || !cellObject.CompareTag("Cell"))
         {
             print("Error, no cell object provided or the Provided cell object is not a cell");
             return false;
         }
-        if (virus == null || !virus.tag.Equals("Virus") || virus.GetComponent<Virus>() == null)
+        if (virus == null || !virus.CompareTag("Virus") || virus.GetComponent<Virus>() == null)
         {
             print("Error, no Virus Provided, or the provided Virus is not Virus.");
             return false;
         }
-        if (throwMassObject == null || !throwMassObject.tag.Equals("ThrownMass"))
+        if (throwMassObject == null || !throwMassObject.CompareTag("ThrownMass"))
         {
             print("Error, no thrown mass object provided or the provided object isn't a thrownMass Object");
             return false;
@@ -280,8 +280,8 @@ public class TestAgarGamemodeManager : MonoBehaviour
             SpawnPlayer();
             SpawnStartingFood();
             SpawnStartingVirus();
-            InvokeRepeating("SpawnFood", 4f, 0.75f);
-            InvokeRepeating("SpawnVirus", 4f, 15);
+            InvokeRepeating(nameof(SpawnFood), 4f, 0.75f);
+            InvokeRepeating(nameof(SpawnVirus), 4f, 15);
         }
         else
         {
